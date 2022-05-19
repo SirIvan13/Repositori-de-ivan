@@ -1,19 +1,21 @@
 class CuentaBancaria:
     def __init__(self,balance,cvu):
         self.cvu = cvu
-        self.__balance = balance
+        self.balance = balance
 
     def depositar(self,monto):
-        self.__balance += monto
+        self.balance += monto
 
     def transferir(self,monto,cuenta_destino):
-        self.__balance -= monto
+        self.balance -= monto
         cuenta_destino.depositar(monto)
 
+    def __str__(self):
+        resulta2 = ("{} {}").format(self.balance, self.cvu)
+        return resulta2
 
 
 cuenta_origen = CuentaBancaria(0,"CVU de Juan")
 cuenta_dif = CuentaBancaria(0,"CVU de Juan't")
 print(dir(cuenta_origen))
-cuenta_origen._CuentaBancaria__balance = 12
 print(cuenta_dif)
